@@ -1,0 +1,57 @@
+
+<div class="main">
+
+    <div align="center">
+      <!--  the fuck is <img src="/images/checkout_indicator2.png" /> -->
+    </div>
+    <br clear="all" />
+    
+    <?php
+      include('./htdocs/views/checkout_cart.html'); 
+    ?>
+    
+    <div class="box alt">   <!--     not in css files  -->
+      <!--    end not in css files  -->
+      <div class="left-top-corner">
+        <div class="right-top-corner">
+          <div class="border-top">
+
+      </div></div></div>
+      <!--    end not in css files  -->
+
+      <!--     not in css files  -->
+      <div class="border-left">   <!--     not in css files  -->
+        <div class="border-right">    <!--     not in css files  -->
+          <div class="inner">     <!--    u need div but class inner not in css files  -->
+            <h2>Your Billing Information</h2>
+            <p>Please enter your billing information below. Then click the button
+              to complete your order. For your security, we will not store your
+              billing informtion in any wy. We accept Visa, Master Card, American
+              Express, and Discover.
+            </p>
+      
+      <?php if (isset($message)) echo "<p class=\"error\">$message</p>"; ?>
+
+      <!--    billing form    -->
+      <?php
+      require_once('htdocs/utils/billing_form.php');
+      ?>
+      
+            <div>By clicking this button, your order will be completed and your
+              cedit card will be charged.
+            </div>
+          </div>    <!--    end of class inner    -->
+      </div></div>    <!--    end not in css files  -->
+    
+      <!--     not in css files  -->
+      <div class="left-bot-corner">
+        <div class="right-bot-corner">
+          <div class="border-bot">
+
+      </div></div></div>
+      <!--    end not in css files  -->
+    </div>
+    <!--  box end -->
+  
+  </div>  <!--  main end -->
+    

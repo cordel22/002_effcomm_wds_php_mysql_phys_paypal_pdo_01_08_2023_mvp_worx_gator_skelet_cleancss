@@ -1,0 +1,81 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" 
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+    <head>
+      <title>
+        <?php //  Use a default page title if one wasn't provided...
+          if (isset($page_title)) {
+            echo $page_title;
+          } else {
+            echo 'Coffee - Wouldn\'t You Love a Cup Right Now?';
+          }
+        ?>
+      </title>
+      <meta http-equiv="Content-Type" content="text/html; 
+        charset=utf-8" />
+      <meta name="description" content="Place your description here" />
+      <meta name="keywords" content="put,your,keyword,here" />
+      <meta name="author" content="Templates.com - website templates provider" />
+      <link href="htdocs/css/style.css" rel="stylesheet" type="text/css" />
+      <!--[if lt IE 7]>           off!!!
+        <script type="text/javascript" src="/js/ie_png.js"></script>
+        <script type="text/javascript">
+          ie_png.fix('.png, .logo h1, .box .left-top-corner, .box
+            .right-top-corner, .box .left-bot-corner, .box .right-bot-corner,
+            .box .border-left, .box .border-right, .box .border-top, .box
+            .border-bot, .box 20 .inner, .special dd, #contacts-form input,
+            #contacts-form textarea');
+        </script>
+      -->
+    </head>
+
+    <body id="page1">            <!--  id page1   not in css    -->
+      <!--  header  -->
+      <!--
+      <div id="header">   hlavne toto je id! nie ako ten dlsi ze class..! tento Header je naviac ci ten druhy ?-->
+        <div class="container">
+            <!-- Header -->
+            <div class="header">  <!--  class!!! header  -->
+              <div class="wrapper">
+                <ul class="top-links">
+                  <a href="http://<?php echo BASE_URL; ?>/index.php" class="first"><img height="20" width="20"  alt=""
+                    src="htdocs/images/icon-home.png" ></a>
+                  <a href="http://<?php echo BASE_URL; ?>/cart.php"><img height="20" width="20"  alt=""
+                    src="htdocs/images/icon-cart.png" ></a>
+                  <a href="http://<?php echo BASE_URL; ?>/contact.php"><img height="20" width="20"  alt=""
+                    src="htdocs/images/icon-mail.png" ></a>
+                  <a href="http://<?php echo BASE_URL; ?>/sitemap.php"><img height="20" width="20"  alt=""
+                    src="htdocs/images/icon-map.png" ></a>
+                </ul>
+                <div class="logo">
+                  <h1><a href="/index.php">Coffee</a><span>Wouldn't 
+                    you love a cup right now?</span></h1>
+                </div>
+              </div><!-- end wrapper -->
+
+            </div>          <!-- end class Header -->
+            
+          <!-- <ul class="nav">                off!!!       -->
+            <!--  MENU  -->
+          <!--   <li><a href="/shop/coffee/">Coffee</a></li>
+            <li><a href="/shop/goodies/">Goodies</a></li>
+            <li><a href="/shop/sales/">Sales</a></li>
+            <li><a href="/wishlist.php">Wish List</a></li>
+            <li><a href="/cart.php">Cart</a></li>-->
+            <!--  END MENU  -->
+          <!-- </ul> -->
+        </div>   <!-- end container -->
+         <!--     </div>      end id Header, moze asi istoff..? -->
+      
+              <!-- The flexible grid (content) -->
+        <div class="row">
+            
+          <!--  content -->
+
+          <!--  following divs.. lik do they belong here or not..?  -->
+          <div id="content">
+            <div class="container">
+              <div class="inside">
+          
+

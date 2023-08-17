@@ -1,0 +1,107 @@
+
+<?php session_start(); ?><!DOCTYPE html PUBLIC "-//W3C//DTD
+  XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <title>
+      <?php // Use a default page title if one wasn't provided...
+        if (isset($page_title)) {
+          echo $page_title;
+        } else {
+          echo 'Coffee - Administration';
+        }
+        ?>
+    </title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link href="/css/style.css" rel="stylesheet" type="text/css" />
+     <!--  <p> p 314 / 331  Again, the reference to the CSS file assumes it will be found in the
+Web root directory/css folder.</p> -->
+    <link href="/css/superfish.css" rel="stylesheet" type="text/css" />
+
+    <!-- 8. After including the jQuery library, include the hoverIntent and Superfish
+JavaScript files: -->
+      <script src="/js/hoverIntent.js" type="text/javascript" charset="utf-8"></script>
+      <script src="/js/superfish.js" type="text/javascript" charset="utf-8"></script>
+
+    <!--   Make sure you include the scripts in this order.
+      9. In a separate script block, apply Superfish: -->
+      <script type="text/javascript">
+        $(function() {
+          $('ul.sf-menu').superfish({
+            autoArrows: false,
+            speed: 'fast'
+          });
+        });
+      </script>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"
+      type="text/javascript" charset="utf-8"></script>
+    <style type="text/css" media="screen">
+      #content {background: #fff; width:100%;padding:200px 100px 30px 0px;}
+      #header .nav li ul a { color:#ffe7be; text-decoration:none;
+        text-transform:none;font-size: .75em; }
+    </style>
+    <!--  [if lt IE 7]>
+      <script type="text/javascript" src="/js/ie_png.js"></script>
+      <script type="text/javacript">
+        ie_png.fix('.png,.logo h1,.box .left-top-corner, .box.right-top-corner,
+        .box .left-bot-corner, .box .right-bot-corner, .box .border-left, 
+        .box.border-right, .box .border-top, .box.border-bot,
+        .box .inner, .special dd,#contacts-form input,
+        #contacts-form textarea');
+      </script>
+    <![endif]-->
+  </head>
+  <body id="page1">
+    <!--  header  -->
+    <div id="header">
+      <div class="container">
+      <div class="wrapper">
+        <div class="logo"><h1><a href="/index.php">Coffee</a>
+          <span>Wouldn't you love a cup right now?</span></h1></div>
+      </div>
+
+<!--       p 314 / 331
+
+      I’ve turned to a jQuery-based plug-in
+called Superfish (http://users.tpg.com.au/j_birch/plugins/superfish/) here.
+
+      CHAPTER 11
+1. Download the latest version of Superfish.
+2. Expand the downloaded file.
+The download will be a ZIP file.
+3. Copy the hoverIntent.js and superfish.js scripts from the Superfish download’s
+js directory to the site’s js directory.
+The hoverIntent.js library isn’t technically part of Superfish, but Superfish
+can use it for a better menu experience. For consistency, all the JavaScript
+for the entire site is being placed within the public js folder.
+4. Copy the superfish.css file from the Superfish download’s css directory to
+the site’s css directory.
+This CSS file styles the Superfish menu. Again, all CSS goes into the public
+css directory.
+5. Open header.html in your text editor or IDE, if it is not already.
+ -->
+      <ul class="nav sf-menu">
+        <!-- MENU -->
+        <li class="first"><a href="#">Products</a><ul>
+          <li><a href="add_specific_coffees.php">Add Coffee Products</a>
+          </li>
+          <li><a href="add_other_products.php">Add Non-Coffee 
+            Products</a></li>
+          <li><a href="add_inventory.php">Add Inventory</a></li>
+        </ul></li>
+        <li><a href="create_sales.php">Sales</a></li>
+        <li><a href="view_orders.php">Orders</a></li>
+        <li><a href="#">Customers</a></li>
+        <!--  END MENU  -->
+      </ul>
+    </div>
+    </div>
+  <!--  content -->
+    <div id="content">
+      <div class="container">
+
+
+
+
+

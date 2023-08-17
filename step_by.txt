@@ -1,0 +1,499 @@
+
+
+166	DATABASE DESIGN
+
+166	Product Tables
+
+167	Customer Tables
+
+169	The SQL
+
+172	SERVER SETUP
+
+172	Server Organization
+
+
+
+178	ENFORCING SSL
+
+179	HELPER FILES
+
+179	Connecting to the Database
+
+179	mysql.inc.php
+
+180		The Config File
+
+180	includes/config.php
+
+182	THE HTML TEMPLATE
+
+182	includes/header.html
+
+184	includes/footer.html
+
+185	NEWER MYSQL FEATURES
+
+186	Prepared Statements
+
+188	Stored Procedures
+
+192	8	CREATING A CATALOG
+
+192	PREPARING THE DATABASE
+
+193	Populating the Tables Using SQL
+
+196	Looking at the Stored Procedure Queries
+
+196	SELECTING EVERY COFFEE PRODUCT
+
+198	SELECTING EVERY NON-COFFEE PRODUCT
+
+199	SELECTING EVERY SALE ITEM
+
+200	SELECTING A FEW RANDOM SALE ITEMS
+
+201	Creating Stored Procedures
+
+204	SHOPPING BY CATEGORY
+
+204	Creating the PHP Script
+
+206	Creating the View Files
+
+207	views/error.html
+
+208	views/list_categories.htm
+
+210	LISTING PRODUCTS
+
+210	Creating the PHP Script
+
+210	browse.php
+
+212	Creating the View Files
+
+
+212	CREATING THE PRODUCTS LIST
+
+212	list_products.html
+
+
+
+
+
+215	CREATING THE COFFEES LIST
+
+215	list_coffees.html	
+
+216	Creating the “No Products” View
+
+
+217	views/noproducts.html
+
+217	INDICATING AVAILABILITY
+
+217	product_functions.inc.php
+
+218	To use this function, you’ll need to include the PHP file in the
+list_products.html script:
+include ('./includes/product_functions.inc.php');
+Note that the reference to the file is relative to the browse.php—the PHP script
+that includes list_products.html—because it’s browse.php that will actually
+be executing this code.
+Next, also in list_products.html, change the availability indication to:
+<strong>Availability:</strong> ' . get_stock_status($row['stock']) …
+The complete echo statement should now be:
+
+219	SHOWING SALE PRICES
+
+220	Updating the Stored Procedure
+
+222	Updating product_functions.inc.php
+
+223	Updating list_products.html
+
+224	Updating list_coffees.html
+
+224	HIGHLIGHTING SALES
+
+225	Creating the Home Page
+
+225	CREATING THE PHP SCRIPT
+
+225	index.php
+
+226	CREATING THE VIEW FILE
+
+226	home.html
+
+227	Creating the Sales Page
+
+227	CREATING THE PHP SCRIPT
+
+228	sales.php
+
+228	CREATING THE VIEW FILE
+
+228	list_sales.html
+
+230	BUILDING A SHOPPING CART
+
+230 DEFINING THE PROCEDURES
+
+231	Adding Adding Products
+
+231	add_to_cart( ) 
+
+232	Removing Products
+
+232	remove_from_cart 
+
+232	Updating the Cart
+
+233	update_cart 
+
+233	Fetching the Cart’s Contents
+
+233	get_shopping_cart_contents
+
+234	DEFINING THE HELPER FUNCTIONS
+
+234	get_just_price
+
+235	parse_sku
+
+236	MAKING A SHOPPING Cart
+
+236	Creating the PHP Script
+
+236	cart.php 
+
+240	Creating the Views
+
+240	emptycart.html
+
+240	cart.html 
+
+244	MAKING A WISH LIST
+
+244	Creating the PHP Script
+
+244	wishlist.php
+
+245	Creating the Views
+
+245	emptylist.html 
+
+246	 wishlist.html
+
+247	CALCULATING SHIPPING
+
+248	get_shipping
+
+250	10	CHECKING OUT
+
+251	ABOUT AUTHORIZE.NET
+
+252	CREATING A TEST
+ACCOUNT
+
+253	PREPARING THE SITE
+
+253	The New HTML Template
+
+254	Make a copy of header.html to be named checkout_header.html and
+stored in the includes directory
+
+254	Change the remaining links to index.php, cart.php, contact.php, and
+sitemap.php so that they use HTTP instead of HTTPS.
+For example, the code should be:
+http://<?php echo BASE_URL; ?>/index.php
+
+255	The Helper Function
+
+255	Create a new PHP script in your text editor or IDE to be named
+form_functions.inc.php and stored in the includes directory
+
+259	Creating the Procedures
+
+259	CLEARING THE SHOPPING CART
+
+259	clear_cart
+
+259	ADDING TRANSACTIONS
+
+260	add_transaction
+
+260	ADDING CUSTOMERS
+
+260	add_customer
+
+261	RETRIEVING ORDER CONTENTS
+
+261	get_order_contents
+
+262	ADDING ORDERS
+
+262	orders
+
+264	 order_contents
+
+265	add_order
+
+266	TAKING THE SHIPPING
+INFORMATION
+
+267	Creating the PHP Script
+
+267	Create a new PHP script in your text editor or IDE to be named
+checkout.php and stored in the Web root directory
+
+274	Creating the View Files
+
+274	checkout_cart.html 
+
+274	CREATING CHECKOUT_CART.HTML
+
+279	CREATING CHECKOUT.HTML
+
+279	checkout.htm
+
+282	TAKING THE BILLING
+INFORMATION
+
+283	Creating the Basic PHP Script
+
+283	billing.php
+
+284	Creating the View File
+
+285	billing.html
+
+288	Validating the Form Data
+
+294	PROCESSING CREDIT
+CARDS
+
+294	Creating gateway_setup.php
+
+294	gateway_setup.php
+
+296	Defining gateway_process.php
+
+296	gateway_process.php
+
+298	Examining the Server Response
+
+300	Updating billing.php
+
+302	COMPLETING THE ORDER
+
+303	final.php 
+
+304	Creating the View File
+
+304	final.htm
+
+305	 receipt.php
+
+306	TESTING THE SITE
+
+307	GOING LIVE
+
+308	11	SITE ADMINISTRATION
+
+309	SETTING UP THE SERVER
+
+309	Requiring Authentication
+
+310	Creating a Template
+
+311	CREATING THE HEADER
+
+311	admin/includes/header.html
+
+313	CREATING THE FOOTER
+
+313	admin/includes/footer.html
+
+313	CREATING THE HOME PAGE
+
+313	admin/index.php
+
+313	Using Superfish
+
+315	Updating create_form_input()
+
+316	Adding PRODUCTS
+
+316	Adding Non-Coffee Products
+
+317	add_other_products.php
+
+325	Adding Coffee Products
+
+331	ADDING INVENTORY
+
+331	add_inventory.php
+
+335	CREATING SALES
+
+335	create_sales.php
+
+340	VIEWING ORDERS
+
+341	Listing Every Order
+
+341	view_orders.php
+
+344	Viewing One Order
+
+344	view_order.php
+
+349	SHIPPING ORDERS
+
+To complete the view_order.php script, the functionality for processing completed orders has to be integrated. This entire process involves:
+1. Requesting actual payment for the order
+2. Recording the payment request transaction in the database
+3. Updating the order_contents table
+4. Updating the catalog inventory
+5. Reporting upon the results
+
+349	Creating gateway_setup_admin.php
+
+349	gateway_setup_admin.php
+
+350	Updating view_order.php
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

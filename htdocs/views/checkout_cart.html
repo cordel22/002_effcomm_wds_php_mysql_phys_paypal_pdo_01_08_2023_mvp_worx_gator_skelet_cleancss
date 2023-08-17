@@ -1,0 +1,133 @@
+
+<div class="main">
+
+    <div class="box alt">
+
+                  <!--     not in css    -->
+      <div class="left-top-corner">
+        <div class="right-top-corner">
+          <div class="border-top">
+
+      </div></div></div>
+                  <!--  end   not in css    -->
+
+      <div class="border-left">                  <!--     not in css    -->
+        <div class="border-right">                    <!--     not in css    -->
+          <div class="inner">     <!--    u need div but class inner  is not in css  -->
+            <h2>Your Shopping Cart</h2>
+              <table border="0" cellspacing="8" cellpadding="6" width="100%">
+                <tr>
+                  <th align="center">Item</th>
+                  <th align="center">Quantity</th>
+                  <th align="right">Price</th>
+                  <th align="right">Subtotal</th>
+                </tr>
+      
+              <?php
+                include ('./htdocs/includes/product_functions.inc.php');
+          
+                //  require(MYSQL); //  wont u need mysql..?
+                //  replace stored procedures with prepared statements
+                include('./htdocs/includes/procedures.php');
+          
+                $total = 0;
+          
+                $remove = array();
+          
+                //  wishlist because of stock or display the cart
+
+    
+    require_once('htdocs/utils/checkout_cart_stock_wish.php');
+    
+                $shipping = get_shipping($total);
+                $total += $shipping;
+                echo '<tr>
+                      <td colspan="2"></td>
+                      <th align="right">Shipping &amp;
+                        Handling
+                      </th>
+                      <td align="right">$' . $shipping . '</td>
+                    </tr>
+                    ';
+    
+                  $_SESSION['shipping'] = $shipping;
+                  echo '<tr>
+                          <td colspan="2"></td>
+                          <th align="right">Total</th>
+                          <td align="right">$' . number_format($total,2) . '</td>
+                          <td>&nbsp;</td>
+                        </tr>
+                        ';
+            
+                  if (!empty($remove)) {
+                    //  mysqli_next_result($dbc);
+                    foreach($remove as $sku => $qty) {
+                      list($sp_type,$pid) = parse_sku($sku);
+                      //  $r = mysqli_multi_query($dbc, "CALL add_to_wish_list('$uid',
+                      //    '$sp_type',$pid,$qty);CALL remove_from_cart('$uid', '$sp_type', $pid)");
+                      
+                      //  add to wish_list
+                      
+                      $whats_cid = $pdo->prepare($wish_cid);
+                      $cid = $whats_cid->execute(array(
+                        
+                        ':uid' => $uid,
+                        
+                        ':type' => $sp_type, 
+                        ':pid' => $pid,
+                        
+                      ));
+                      $assoc = $whats_cid->fetch(PDO::FETCH_ASSOC);
+                      $cid = (int) $assoc['id'];
+                        
+                      if ($cid > 0) {
+                        $r = $pdo->prepare($wish_update);
+                        $r->execute(array(
+                          ':cid' => $cid,
+                          
+                          ':qty' => 1
+                        ));
+                        
+                      } else {
+                        $r = $pdo->prepare($wish_setup);
+                        $r->execute(array(
+                          
+                          ':uid' => $uid,
+                          ':type' => $sp_type, 
+                          ':pid' => $pid,
+                          ':qty' => $qty
+                        ));
+                      }
+                      //  end add to wish_list
+            
+                      //  remove from cart
+                      $r = $pdo->prepare($remove_from_cart);
+                      $r->execute(array(
+                        
+                        ':uid' => $uid,
+                        ':type' => $sp_type, 
+                        ':pid' => $pid,
+                      //  end remove from cart
+                
+              ));
+                    
+                    }
+                  }
+                ?>
+              </table>
+    </div>                  <!--  end   not in css but u need class inner    -->
+  
+  </div></div>                  <!--  end   not in css    -->
+
+                    <!--     not in css    -->
+  <div class="left-bot-corner">
+    <div class="right-bot-corner">
+      <div class="border-bot">
+
+      </div></div></div>
+                        <!--  end   not in css    -->
+    </div>
+    <!--  box end-->
+    
+    
+      </div>    <!--  main end -->
